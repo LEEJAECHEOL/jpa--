@@ -1,0 +1,33 @@
+
+server:
+  port: 8000
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+      enabled: true
+      
+    
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/ # /src/main/webapp
+      suffix: .jsp
+      
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springdb?serverTimezone=Asia/Seoul
+    username: springuser
+    password: 1234
+  # jpa : Java Persistence API : 자바 데이터를 영구히 저장할 수 있는 메소드를 가지고 있는 집합체 (DAO 내장)
+  # - 기반기슬(hibernate <= ORM)
+  # Object Relation Mapping (원래는 fk로 해야됨 => Java Object로 할 수 있다.)
+  # 기능 1 : 자바오브젝트 생성하면 -> 테이블이 생성된다.
+  jpa:
+    hibernate:
+      ddl-auto: update # 지금 몰라도 됨
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 모델의 네이밍을 따라감
+        #physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy # 디폴트
+    show-sql: true # 지금 몰라도 됨
+      
